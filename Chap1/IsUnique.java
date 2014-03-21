@@ -12,10 +12,10 @@ public class IsUnique {
         // TODO code application logic here
         String[] A = {"", "A","AA","ABCDEFGG","ABCEDFG"};
         for(String s : A) {
-           System.out.println(isUnique(s));
+           System.out.println(isUnique1(s) == isUnique2(s));
         }
     }
-    static boolean isUnique(String s) {
+    static boolean isUnique1(String s) {
         BitSet bitset = new BitSet(128);
         int len = s.length();
         for(int i =0; i < len; i++) {
@@ -24,6 +24,22 @@ public class IsUnique {
                 return false;
             }else {
                 bitset.set(asciiCode);
+            }
+        }
+        return true;
+    }
+    static boolean isUnique2(String s) {
+        int[] bitset = new int[4];
+        int len = s.length();
+        for(int i = 0; i < len; i++) {
+            byte idx = (byte)s.charAt(i);
+            byte a = (byte)(idx/32);
+            byte j = (byte)(idx % 32);
+            int n = bitset[a];
+            if(((n>>j) & 1) == 0) {
+                bitset[a] = bitset[a] | (1 << j);
+            }else {
+                return false;
             }
         }
         return true;
