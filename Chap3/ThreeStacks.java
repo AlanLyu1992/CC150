@@ -1,3 +1,4 @@
+//This implementation is really bad!
 public class ThreeStacks {
     Object[] stack;
     ThreeStacks(Integer len1, Integer len2, Integer len3) {
