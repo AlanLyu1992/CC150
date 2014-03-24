@@ -1,34 +1,53 @@
-//This implementation is really bad!
-public class ThreeStacks {
+public class ThreeStacks<T> {
+    int[] capacity;
+    int[] size;
+    int[] index;
     Object[] stack;
-    ThreeStacks(Integer len1, Integer len2, Integer len3) {
-        stack = new Object[9+len1+len2+len3];
-        stack[0] = len1;stack[1] = len2;stack[2] = len3;
-        stack[3] = 0;stack[4] = 0;stack[5] = 0;
-        stack[6] = 9;stack[7] = 9+len1;stack[8] = 9+len1+len2;
+    public ThreeStacks(int len1, int len2, int len3 ) {
+        capacity = new int[3];
+        size = new int[3];
+        index = new int[3];
+        stack = new Object[len1+len2+len3];
+        capacity[0] = len1; index[0] = 0;
+        capacity[1] = len1; index[1] = len1;
+        capacity[2] = len1; index[2] = len1+len2;
     }
-    void push(Object data, Integer idx) {
-        if(idx <= 0 || idx > 3) return;//throw new Exception();
-        if(stack[2+idx] == stack[-1+idx]) {
-            return;
-            //throw new Exception();
-        }else {
-            stack[2+idx] = (Integer)stack[2+idx] + 1;
-            stack[(Integer)stack[5+idx]] = data;
+    public void push(int stackNum, T data) {
+        if(size[stackNum] == capacity[stackNum]) {
+            throw new fullStackException();
         }
+        stack[index[stackNum]] = data;
+        index[stackNum]++;
+        size[stackNum]++;
     }
-    Object pop(Integer idx) {
-        if(idx <= 0 || idx > 3) return null;//throw new Exception();
-        if((Integer)stack[2+idx] == 0) {
+    public T pop(int stackNum) {
+        if(isEmpty(stackNum)) {
+            throw new emptyStackException();
+        }
+        @SuppressWarnings("unchecked")
+        T data = (T)stack[index[stackNum]-1];
+        index[stackNum]--;
+        size[stackNum]--;
+        return data;
+    }
+    public T peek(int stackNum) {
+        if(isEmpty(stackNum)) {
             return null;
-            //throw new Exception();
-        }else {
-            stack[2+idx] = (Integer)stack[2+idx] - 1;
-            stack[5+idx] = (Integer)stack[5+idx] - 1;
-            Object data = stack[(Integer)stack[5+idx]];
-            stack[(Integer)stack[5+idx]] = null;
-            return data;
         }
+        @SuppressWarnings("unchecked")
+        T data = (T)stack[index[stackNum]-1];
+        index[stackNum]--;
+        size[stackNum]--;
+        return data;
+    }
+    public boolean isEmpty(int stackNum) {
+        return size[stackNum] == 0;
     }
 }
+class fullStackException extends RuntimeException{};
+class emptyStackException extends RuntimeException{};
+
+
+
+
 
