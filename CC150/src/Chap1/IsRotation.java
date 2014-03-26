@@ -1,3 +1,5 @@
+package Chap1;
+
 public class IsRotation {
     public static void main(String[] args) {
         String[] A = {"aabc","aaa","","erbottlewat","abc"};

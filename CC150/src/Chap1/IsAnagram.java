@@ -1,3 +1,5 @@
+package Chap1;
+
 import java.util.HashMap;
 import java.util.Map;
 public class IsAnagram {

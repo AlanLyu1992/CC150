@@ -1,3 +1,5 @@
+package Chap3;
+
 public class ThreeStacks<T> {
     int[] capacity;
     int[] size;

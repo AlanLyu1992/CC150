@@ -1,3 +1,5 @@
+package Chap1;
+
 public class ReplaceSpaces {
     public static void main(String[] args) {
         String[] set = {"", " ", " a", "a ", "  a", "a  b", "ab  "};

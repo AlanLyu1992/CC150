@@ -1,3 +1,5 @@
+package Chap1;
+
 public class SetMatrixZero {
     public static void main(String[] args) {
         int[][][] matrices = {{{1,1,1,1},
