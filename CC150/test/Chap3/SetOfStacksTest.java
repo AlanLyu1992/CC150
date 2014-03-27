@@ -68,5 +68,47 @@ public class SetOfStacksTest {
         stack.popAt(1);
 	}
 
+	/**
+	 * Test of pop method, of class SetOfStacks.
+	 */
+	@Test
+	public void testPop() {
+		System.out.println("pop");
+		SetOfStacks instance = null;
+		Object expResult = null;
+		Object result = instance.pop();
+		assertEquals(expResult, result);
+		// TODO review the generated test code and remove the default call to fail.
+		fail("The test case is a prototype.");
+	}
+
+	/**
+	 * Test of peek method, of class SetOfStacks.
+	 */
+	@Test
+	public void testPeek() {
+		System.out.println("peek");
+		SetOfStacks instance = null;
+		Object expResult = null;
+		Object result = instance.peek();
+		assertEquals(expResult, result);
+		// TODO review the generated test code and remove the default call to fail.
+		fail("The test case is a prototype.");
+	}
+
+	/**
+	 * Test of isEmpty method, of class SetOfStacks.
+	 */
+	@Test
+	public void testIsEmpty() {
+		System.out.println("isEmpty");
+		SetOfStacks instance = null;
+		boolean expResult = false;
+		boolean result = instance.isEmpty();
+		assertEquals(expResult, result);
+		// TODO review the generated test code and remove the default call to fail.
+		fail("The test case is a prototype.");
+	}
+
 	
 }
