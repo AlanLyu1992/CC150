@@ -1,13 +1,6 @@
 package Chap3;
 import java.util.Comparator;
 
-class Node<E> {
-    E data;
-    Node<E> next;
-    Node(E data) {
-        this.data = data;
-    }
-}
 public class StackWithMin<E> {
     private Node<E> head;
     private Node<E> min;
@@ -45,5 +38,12 @@ public class StackWithMin<E> {
     }
     public E peek() {
         return isEmpty()? null:head.data;
+    }
+    class Node<E> {
+        E data;
+        Node<E> next;
+        Node(E data) {
+            this.data = data;
+        }
     }
 }

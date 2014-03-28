@@ -16,7 +16,7 @@ import org.junit.runners.Suite;
  * @author yin
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({NodeTest.class, StackWithMinTest.class, HanoiTest.class, QueueWithStackTest.class, SetOfStacksTest.class, ThreeStacksTest.class, fullStackExceptionTest.class, emptyStackExceptionTest.class})
+@Suite.SuiteClasses({StackWithMinTest.class, HanoiTest.class, QueueWithStackTest.class, SetOfStacksTest.class, ThreeStacksTest.class, fullStackExceptionTest.class, emptyStackExceptionTest.class, StacksTest.class, StackTest.class})
 public class Chap3Suite {
 
 	@BeforeClass
