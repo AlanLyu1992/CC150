@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package Chap3;
+package Chap4;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -16,8 +16,8 @@ import org.junit.runners.Suite;
  * @author yin
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({StackWithMinTest.class, PetsQueueTest.class, AnimalTest.class, CatTest.class, DogTest.class, HanoiTest.class, QueueWithStackTest.class, SetOfStacksTest.class, ThreeStacksTest.class, fullStackExceptionTest.class, emptyStackExceptionTest.class, StacksTest.class, StackTest.class})
-public class Chap3Suite {
+@Suite.SuiteClasses({TreesTest.class, DirectedGraphNodeTest.class, TreeNodeTest.class, IsBalancedTest.class})
+public class Chap4Suite {
 
 	@BeforeClass
 	public static void setUpClass() throws Exception {

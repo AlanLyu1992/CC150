@@ -1,49 +1,49 @@
 package Chap3;
 import java.util.*;
 public class PetsQueue {
-    Map<Class<? extends Animal>, Deque<? extends Animal>> map;
-    int order;
+    private Map<Class<? extends Animal>, Deque<Animal>> map;
+    private int order;
     public PetsQueue() {
         map = new HashMap<>();
         order = 0;
     }
-    public <T extends Animal> void enqueue(T pet) {
-        Class<?> c = pet.getClass();
+    public synchronized void enqueue(Animal pet) {
+        Class<? extends Animal> c = pet.getClass();
         pet.order = order;
         order++;
         map.putIfAbsent(c, new ArrayDeque<>());
-        map.get(c).push(pet);
+        map.get(c).offer(pet);
     }
-    public Animal dequeueAny() {
-        Class<?> minClass = null;
+    public synchronized Animal dequeueAny() {
+        Class<? extends Animal> minClass = null;
         int min = Integer.MAX_VALUE;
-        for(Map.Entry entry : map.entrySet()) {
-            int ord = entry.getValue().peek().order;
-            if(ord < min) {
-                min = ord;
+        for(Map.Entry<Class<? extends Animal>, Deque<Animal>> entry :
+                map.entrySet()) {
+            Animal pet = entry.getValue().peek();
+            if(pet!= null && pet.order < min) {
+                min = pet.order;
                 minClass = entry.getKey();
             }
         }
         return map.get(minClass).pop();
     }
-    public <T extends Animal> T dequeue(Class<T> pet) {
-        return map.get(pet).pop();
+    @SuppressWarnings("unchecked")
+    public synchronized <T extends Animal> T dequeue(Class<T> pet) {
+        return (T)map.get(pet).pop();
     }
 }
 abstract class Animal {
     int order;
-    Animal(int ord) {
-        order = ord;
-    }
+    String name;
 }
 class Cat extends Animal {
-    Cat(int ord) {
-        super(ord);
+    Cat(String n) {
+        name = n;
     }
 }
 class Dog extends Animal {
-    Dog(int ord) {
-        super(ord);
+    Dog(String n) {
+        name = n;
     }
 }
     
