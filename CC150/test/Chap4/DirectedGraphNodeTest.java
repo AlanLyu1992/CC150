@@ -43,7 +43,39 @@ public class DirectedGraphNodeTest {
             sol.printGraph(graph, "#");
             assertEquals(B[i], sol.isConnected(graph, 
                         graph.next.get(0).next.get(1).next.get(1)));
+	    assertEquals(false, sol.isConnected(graph, 
+                        sol));
         }
+	}
+
+	/**
+	 * Test of genGraph method, of class DirectedGraphNode.
+	 */
+	@Test
+	public void testGenGraph() {
+		System.out.println("genGraph");
+		int[] A = null;
+		int sep = 0;
+		DirectedGraphNode instance = null;
+		DirectedGraphNode expResult = null;
+		DirectedGraphNode result = instance.genGraph(A, sep);
+		assertEquals(expResult, result);
+		// TODO review the generated test code and remove the default call to fail.
+		fail("The test case is a prototype.");
+	}
+
+	/**
+	 * Test of printGraph method, of class DirectedGraphNode.
+	 */
+	@Test
+	public void testPrintGraph() {
+		System.out.println("printGraph");
+		DirectedGraphNode start = null;
+		String sep = "";
+		DirectedGraphNode instance = null;
+		instance.printGraph(start, sep);
+		// TODO review the generated test code and remove the default call to fail.
+		fail("The test case is a prototype.");
 	}
 	
 }

@@ -4,6 +4,7 @@ public class TreeNode {
     int val;
     TreeNode left;
     TreeNode right;
+    TreeNode father;
     public TreeNode(int x) {
         val = x;
     }
@@ -12,5 +13,8 @@ public class TreeNode {
     }
     public Optional<TreeNode> right() {
         return Optional.ofNullable(right);
+    }
+    public Optional<TreeNode> father() {
+        return Optional.ofNullable(father);
     }
 }

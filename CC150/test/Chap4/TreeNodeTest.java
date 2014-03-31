@@ -56,5 +56,19 @@ public class TreeNodeTest {
 		// TODO review the generated test code and remove the default call to fail.
 		fail("The test case is a prototype.");
 	}
+
+	/**
+	 * Test of father method, of class TreeNode.
+	 */
+	@Test
+	public void testFather() {
+		System.out.println("father");
+		TreeNode instance = null;
+		Optional<TreeNode> expResult = null;
+		Optional<TreeNode> result = instance.father();
+		assertEquals(expResult, result);
+		// TODO review the generated test code and remove the default call to fail.
+		fail("The test case is a prototype.");
+	}
 	
 }

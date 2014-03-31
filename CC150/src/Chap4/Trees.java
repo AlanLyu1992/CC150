@@ -76,6 +76,7 @@ public class Trees {
                 System.out.print(nullSign+" ");
             }
         }
+        System.out.println();
     }
 }
 
